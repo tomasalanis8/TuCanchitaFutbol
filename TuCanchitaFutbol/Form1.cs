@@ -112,5 +112,35 @@ namespace TuCanchitaFutbol
                 dataGridView1.DataSource = dataTable;
             }
         }
+
+        private void pictureBox3_Click(object sender, EventArgs e)
+        {
+            if (dataGridView1.SelectedRows.Count > 0)
+            {
+                // Obtener los valores de la fila seleccionada
+                int dniModificar = Convert.ToInt32(dataGridView1.SelectedRows[0].Cells[0].Value);
+                string nombreModificar = dataGridView1.SelectedRows[0].Cells[1].Value.ToString();
+                int diaModificar = Convert.ToInt32(dataGridView1.SelectedRows[0].Cells[2].Value);
+                int mesModificar = Convert.ToInt32(dataGridView1.SelectedRows[0].Cells[3].Value);
+                int horaModificar = Convert.ToInt32(dataGridView1.SelectedRows[0].Cells[4].Value);
+                int precioModificar = Convert.ToInt32(dataGridView1.SelectedRows[0].Cells[5].Value);
+
+                // Abrir el formulario de edición y pasar los valores
+                FormEditarValores formEditar = new FormEditarValores(dniModificar, nombreModificar, diaModificar, mesModificar, horaModificar, precioModificar);
+                formEditar.ShowDialog();
+
+                // Verificar si se guardaron los cambios
+                if (formEditar.GuardarCambios)
+                {
+                    // Actualizar el DataGridView
+                    dataGridView1.SelectedRows[0].Cells[0].Value = formEditar.DNI;
+                    dataGridView1.SelectedRows[0].Cells[1].Value = formEditar.Nombre;
+                    dataGridView1.SelectedRows[0].Cells[2].Value = formEditar.Dia;
+                    dataGridView1.SelectedRows[0].Cells[3].Value = formEditar.Mes;
+                    dataGridView1.SelectedRows[0].Cells[4].Value = formEditar.Hora;
+                    dataGridView1.SelectedRows[0].Cells[5].Value = formEditar.Precio;
+                }
+            }
+        }
     }
 }
