@@ -8,6 +8,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.SqlClient;
+using System.Net;
+using System.Security.Cryptography;
 
 
 namespace TuCanchitaFutbol
@@ -28,19 +30,32 @@ namespace TuCanchitaFutbol
 
         private void button1_Click(object sender, EventArgs e)
         {
-            conn.Open();
-            int DNI = int.Parse(txtBoxDNI.Text);
+            int DNI = Convert.ToInt32(txtBoxDNI.Text);
             string NOMBRE = txtBoxNombre.Text;
-            int DIA = int.Parse(txtBoxDia.Text);
-            int MES = int.Parse(txtBoxMes.Text);
-            int AÑO = int.Parse(txtBoxAño.Text);
-            int PRECIO = int.Parse(txtBoxPrecio.Text);
+            int DIA = Convert.ToInt32(txtBoxDia.Text);
+            int MES = Convert.ToInt32(txtBoxMes.Text);
+            int HORA = Convert.ToInt32(txtBoxHora.Text);
+            int PRECIO = Convert.ToInt32(txtBoxPrecio.Text);
 
-            SqlCommand Query = new SqlCommand("INSERT INTO Cancha VALUES('"+DNI+"','"+NOMBRE+"','"+DIA+"','"+MES+"','"+AÑO+ "','"+PRECIO+"',)", conn);
+            string consulta = "INSERT INTO Cancha (DNI, NOMBRE, DIA, MES, HORA, PRECIO) VALUES (@dni, @nombre, @dia, @mes, @hora, @precio)";
+            using (SqlConnection conn = new SqlConnection("Data Source=DESKTOP-4EFFS3O\\SQLEXPRESS;database=TuCanchita;Integrated Security=True"))
+            {
+                using (SqlCommand cmd = new SqlCommand(consulta, conn))
+                {
+                    cmd.Parameters.AddWithValue("@dni", DNI);
+                    cmd.Parameters.AddWithValue("@nombre", NOMBRE);
+                    cmd.Parameters.AddWithValue("@dia", DIA);
+                    cmd.Parameters.AddWithValue("@mes", MES);
+                    cmd.Parameters.AddWithValue("@hora", HORA);
+                    cmd.Parameters.AddWithValue("@precio", PRECIO);
 
+                    conn.Open();
+                    cmd.ExecuteNonQuery();
+                }
+            }
+
+            LimpiarTextBoxes();
             MessageBox.Show("Datos ingresados");
-            
-            conn.Close();
         }
 
 
@@ -49,10 +64,21 @@ namespace TuCanchitaFutbol
 
         }
 
+        private void LimpiarTextBoxes()
+        {
+            txtBoxDNI.Clear();
+            txtBoxNombre.Clear();
+            txtBoxDia.Clear();
+            txtBoxMes.Clear();
+            txtBoxHora.Clear();
+            txtBoxPrecio.Clear();
+        }
+
         private void frmAgregar_Load(object sender, EventArgs e)
         {
 
         }
+
 
         private void label1_Click(object sender, EventArgs e)
         {

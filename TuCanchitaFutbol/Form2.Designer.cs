@@ -34,7 +34,7 @@
             this.button1 = new System.Windows.Forms.Button();
             this.txtBoxPrecio = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
-            this.txtBoxAño = new System.Windows.Forms.TextBox();
+            this.txtBoxHora = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.txtBoxMes = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
@@ -52,7 +52,7 @@
             this.groupBoxRellenaLosDatos.Controls.Add(this.button1);
             this.groupBoxRellenaLosDatos.Controls.Add(this.txtBoxPrecio);
             this.groupBoxRellenaLosDatos.Controls.Add(this.label6);
-            this.groupBoxRellenaLosDatos.Controls.Add(this.txtBoxAño);
+            this.groupBoxRellenaLosDatos.Controls.Add(this.txtBoxHora);
             this.groupBoxRellenaLosDatos.Controls.Add(this.label5);
             this.groupBoxRellenaLosDatos.Controls.Add(this.txtBoxMes);
             this.groupBoxRellenaLosDatos.Controls.Add(this.label4);
@@ -112,21 +112,21 @@
             this.label6.TabIndex = 11;
             this.label6.Text = "Precio";
             // 
-            // txtBoxAño
+            // txtBoxHora
             // 
-            this.txtBoxAño.Location = new System.Drawing.Point(68, 138);
-            this.txtBoxAño.Name = "txtBoxAño";
-            this.txtBoxAño.Size = new System.Drawing.Size(194, 23);
-            this.txtBoxAño.TabIndex = 10;
+            this.txtBoxHora.Location = new System.Drawing.Point(68, 138);
+            this.txtBoxHora.Name = "txtBoxHora";
+            this.txtBoxHora.Size = new System.Drawing.Size(194, 23);
+            this.txtBoxHora.TabIndex = 10;
             // 
             // label5
             // 
             this.label5.AutoSize = true;
             this.label5.Location = new System.Drawing.Point(11, 146);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(29, 15);
+            this.label5.Size = new System.Drawing.Size(33, 15);
             this.label5.TabIndex = 9;
-            this.label5.Text = "Año";
+            this.label5.Text = "Hora";
             // 
             // txtBoxMes
             // 
@@ -183,6 +183,7 @@
             this.BackColor = System.Drawing.SystemColors.AppWorkspace;
             this.ClientSize = new System.Drawing.Size(296, 293);
             this.Controls.Add(this.groupBoxRellenaLosDatos);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Name = "frmAgregar";
             this.Text = "Agregar";
             this.Load += new System.EventHandler(this.frmAgregar_Load);
@@ -197,7 +198,7 @@
         private GroupBox groupBoxRellenaLosDatos;
         private TextBox txtBoxPrecio;
         private Label label6;
-        private TextBox txtBoxAño;
+        private TextBox txtBoxHora;
         private Label label5;
         private TextBox txtBoxMes;
         private Label label4;

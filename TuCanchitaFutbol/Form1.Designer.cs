@@ -35,11 +35,7 @@
             this.pictureBox4 = new System.Windows.Forms.PictureBox();
             this.label1 = new System.Windows.Forms.Label();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.ColumnaNombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColumnaDia = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColumnaMes = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColumnaAño = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColumnaPrecio = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.buttonActualizar = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
@@ -51,7 +47,7 @@
             // 
             this.pictureBox1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox1.BackgroundImage")));
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(569, 111);
+            this.pictureBox1.Location = new System.Drawing.Point(563, 111);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(70, 70);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -62,17 +58,18 @@
             // pictureBox2
             // 
             this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
-            this.pictureBox2.Location = new System.Drawing.Point(569, 263);
+            this.pictureBox2.Location = new System.Drawing.Point(563, 263);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(70, 70);
             this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox2.TabIndex = 1;
             this.pictureBox2.TabStop = false;
+            this.pictureBox2.Click += new System.EventHandler(this.pictureBox2_Click);
             // 
             // pictureBox3
             // 
             this.pictureBox3.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox3.Image")));
-            this.pictureBox3.Location = new System.Drawing.Point(569, 187);
+            this.pictureBox3.Location = new System.Drawing.Point(563, 187);
             this.pictureBox3.Name = "pictureBox3";
             this.pictureBox3.Size = new System.Drawing.Size(70, 70);
             this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -93,7 +90,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Segoe UI", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label1.Location = new System.Drawing.Point(154, 39);
+            this.label1.Location = new System.Drawing.Point(133, 41);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(350, 30);
             this.label1.TabIndex = 4;
@@ -102,62 +99,39 @@
             // dataGridView1
             // 
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.ColumnaNombre,
-            this.ColumnaDia,
-            this.ColumnaMes,
-            this.ColumnaAño,
-            this.ColumnaPrecio});
             this.dataGridView1.Location = new System.Drawing.Point(12, 111);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowTemplate.Height = 25;
-            this.dataGridView1.Size = new System.Drawing.Size(538, 229);
+            this.dataGridView1.Size = new System.Drawing.Size(545, 229);
             this.dataGridView1.TabIndex = 5;
             // 
-            // ColumnaNombre
+            // buttonActualizar
             // 
-            this.ColumnaNombre.HeaderText = "Nombre";
-            this.ColumnaNombre.Name = "ColumnaNombre";
-            this.ColumnaNombre.ReadOnly = true;
-            // 
-            // ColumnaDia
-            // 
-            this.ColumnaDia.HeaderText = "Dia";
-            this.ColumnaDia.Name = "ColumnaDia";
-            this.ColumnaDia.ReadOnly = true;
-            // 
-            // ColumnaMes
-            // 
-            this.ColumnaMes.HeaderText = "Mes";
-            this.ColumnaMes.Name = "ColumnaMes";
-            this.ColumnaMes.ReadOnly = true;
-            // 
-            // ColumnaAño
-            // 
-            this.ColumnaAño.HeaderText = "Año";
-            this.ColumnaAño.Name = "ColumnaAño";
-            this.ColumnaAño.ReadOnly = true;
-            // 
-            // ColumnaPrecio
-            // 
-            this.ColumnaPrecio.HeaderText = "Precio";
-            this.ColumnaPrecio.Name = "ColumnaPrecio";
-            this.ColumnaPrecio.ReadOnly = true;
+            this.buttonActualizar.Location = new System.Drawing.Point(511, 41);
+            this.buttonActualizar.Name = "buttonActualizar";
+            this.buttonActualizar.Size = new System.Drawing.Size(101, 30);
+            this.buttonActualizar.TabIndex = 6;
+            this.buttonActualizar.Text = "ACTUALIZAR";
+            this.buttonActualizar.UseVisualStyleBackColor = true;
+            this.buttonActualizar.Click += new System.EventHandler(this.buttonActualizar_Click);
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Window;
-            this.ClientSize = new System.Drawing.Size(645, 354);
+            this.ClientSize = new System.Drawing.Size(641, 354);
+            this.Controls.Add(this.buttonActualizar);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.pictureBox4);
             this.Controls.Add(this.pictureBox3);
             this.Controls.Add(this.pictureBox2);
             this.Controls.Add(this.pictureBox1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Name = "Form1";
             this.Text = "Form1";
+            this.Load += new System.EventHandler(this.Form1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
@@ -176,10 +150,6 @@
         private PictureBox pictureBox4;
         private Label label1;
         private DataGridView dataGridView1;
-        private DataGridViewTextBoxColumn ColumnaNombre;
-        private DataGridViewTextBoxColumn ColumnaDia;
-        private DataGridViewTextBoxColumn ColumnaMes;
-        private DataGridViewTextBoxColumn ColumnaAño;
-        private DataGridViewTextBoxColumn ColumnaPrecio;
+        private Button buttonActualizar;
     }
 }

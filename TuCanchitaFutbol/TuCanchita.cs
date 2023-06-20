@@ -28,5 +28,10 @@ namespace TuCanchitaFutbol
             this.Año = Año;
             this.Precio= Precio;
         }
+
+        public void EliminarTurno(string DNI)
+        {
+            EliminarTurno(DNI);
+        }
     }
 }
